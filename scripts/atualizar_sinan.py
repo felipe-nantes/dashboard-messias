@@ -1,6 +1,6 @@
 """Coleta oficial, cache por ano, processamento e publicação atômica de agregados.
 Execução: python -B scripts/atualizar_sinan.py [--forcar]
-Só escreve dentro de painel/. Nenhum arquivo recebido é modificado.
+Escreve no armazenamento configurado. Nenhum arquivo recebido é modificado.
 """
 from __future__ import annotations
 import argparse, datetime as dt, ftplib, hashlib, json, os, pathlib, shutil, subprocess, sys, time
@@ -35,6 +35,19 @@ def base_publicada_valida(pointer):
     path=(path if path.is_absolute() else DATA/path).resolve()
     if not path.is_relative_to(DATA.resolve()) or not path.is_file(): return False
     return not pointer.get('sha256') or sha(path)==pointer['sha256']
+
+def fonte_sem_revisoes(metadados, antigos, pointer):
+    """Dispensa DBC temporario apenas se fonte e ultimo agregado integro conferem."""
+    if set(antigos) != {a['ano'] for a in metadados}: return False
+    for atual in metadados:
+        anterior=antigos[atual['ano']]
+        if atual['tamanho'] is None or not atual['modificado']: return False
+        if any(atual[chave] != anterior.get(chave) for chave in ('remoto','tamanho','modificado')): return False
+        if not isinstance(anterior.get('sha256'),str) or len(anterior['sha256'])!=64: return False
+    assinatura=hashlib.sha256(json.dumps([(a['ano'],antigos[a['ano']]['sha256']) for a in metadados]).encode()).hexdigest()
+    return (assinatura==pointer.get('assinatura') and
+            isinstance(pointer.get('sha256'),str) and len(pointer['sha256'])==64 and
+            base_publicada_valida(pointer))
 
 def rscript():
     configured=os.environ.get('DASH_RSCRIPT')
@@ -81,11 +94,22 @@ def executar(forcar=False):
                             disponiveis.setdefault(2000+int(yy),(pasta,base))
             if not all(y in disponiveis for y in range(2014,2026)):
                 raise RuntimeError('O catálogo oficial não contém todos os anos de 2014 a 2025; mantida a última versão válida.')
+            metadados=[]
             for ano,(pasta,nome) in sorted(disponiveis.items()):
                 remoto=pasta+'/'+nome; ftp.voidcmd('TYPE I')
                 tamanho=ftp.size(remoto)
                 try: modificado=ftp.sendcmd('MDTM '+remoto)[4:]
                 except ftplib.error_perm: modificado=None
+                metadados.append({'ano':ano,'nome':nome,'remoto':remoto,'tamanho':tamanho,'modificado':modificado})
+            pointer=DATA/'atualizacao_atual.json'
+            if not forcar and fonte_sem_revisoes(metadados,antigos,json_ler(pointer)):
+                status.update(estado='sem_alteracoes',ultima_consulta=agora(),
+                              mensagem='Fonte consultada; sem novos arquivos ou revisões.')
+                json_gravar(STATUS,status)
+                print(status['mensagem'],flush=True)
+                return
+            for item in metadados:
+                ano,nome,remoto,tamanho,modificado=(item[k] for k in ('ano','nome','remoto','tamanho','modificado'))
                 antigo=antigos.get(ano,{})
                 local=cache/nome
                 identico=(local.exists() and antigo.get('remoto')==remoto and
@@ -127,6 +151,8 @@ def executar(forcar=False):
             run=subprocess.run([rscript(),'--vanilla','scripts/processar_atualizacao.R',str(jobfile)],cwd=ROOT,env=env,
                                stdout=log,stderr=subprocess.STDOUT,timeout=7200)
         if run.returncode or not (dest/'dados.rds').is_file():
+            linhas=(dest/'processamento.log').read_text(encoding='utf-8',errors='replace').splitlines()
+            for linha in linhas[-60:]: print(linha,file=sys.stderr,flush=True)
             raise RuntimeError('A validação não foi concluída. Consulte '+str(dest/'processamento.log'))
         json_gravar(pointer,{'id':ident,'arquivo':(dest/'dados.rds').relative_to(DATA).as_posix(),'atualizado_em':agora(),'assinatura':assinatura,'sha256':sha(dest/'dados.rds')})
         status.update(estado='atualizado',ultima_consulta=agora(),ultima_atualizacao=agora(),versao=ident,
