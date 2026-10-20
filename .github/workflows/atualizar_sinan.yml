@@ -17,14 +17,16 @@ jobs:
     env:
       DASH_AMBIENTE: processamento
       DASH_AGENDAMENTO_NUVEM_ATIVO: 'true'
-      R_LIBS_USER: ${{ runner.temp }}/r-library
-      TMPDIR: ${{ runner.temp }}
-      RENV_PATHS_ROOT: ${{ runner.temp }}/renv
-      DASH_DATA_DIR: ${{ runner.temp }}/processamento-data
-      DASH_RUNTIME_DIR: ${{ runner.temp }}/sinan-runtime
-      PUBLISH_STAGE: ${{ runner.temp }}/pacote-dashboard
     steps:
       - uses: actions/checkout@v7
+      - name: Configurar diretorios temporarios do executor
+        run: |
+          echo "R_LIBS_USER=$RUNNER_TEMP/r-library" >> "$GITHUB_ENV"
+          echo "TMPDIR=$RUNNER_TEMP" >> "$GITHUB_ENV"
+          echo "RENV_PATHS_ROOT=$RUNNER_TEMP/renv" >> "$GITHUB_ENV"
+          echo "DASH_DATA_DIR=$RUNNER_TEMP/processamento-data" >> "$GITHUB_ENV"
+          echo "DASH_RUNTIME_DIR=$RUNNER_TEMP/sinan-runtime" >> "$GITHUB_ENV"
+          echo "PUBLISH_STAGE=$RUNNER_TEMP/pacote-dashboard" >> "$GITHUB_ENV"
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: '4.5.2'
