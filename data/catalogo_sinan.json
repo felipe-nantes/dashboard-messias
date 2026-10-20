@@ -1,0 +1,121 @@
+{
+  "arquivos": [
+    {
+      "ano": 2014,
+      "arquivo": "IEXOBR14.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR14.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR14.dbc",
+      "tamanho": 7550539,
+      "modificado": "20260306125700",
+      "sha256": "c435cb7c0ee2d2337ca588ed4019ed93580b6ad48f4d007f020351b7c5df62a2"
+    },
+    {
+      "ano": 2015,
+      "arquivo": "IEXOBR15.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR15.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR15.dbc",
+      "tamanho": 7458640,
+      "modificado": "20260306125700",
+      "sha256": "e1c520e87f4eb4ef95bbbf5f7682bd9c69f1e83900499b43ba3f15f9cb805d15"
+    },
+    {
+      "ano": 2016,
+      "arquivo": "IEXOBR16.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR16.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR16.dbc",
+      "tamanho": 8094508,
+      "modificado": "20260306125700",
+      "sha256": "19a7a0c579b551fd3c3aec5c1fa73153128a9f487d4c63e0564af57dc47655fd"
+    },
+    {
+      "ano": 2017,
+      "arquivo": "IEXOBR17.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR17.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR17.dbc",
+      "tamanho": 10848689,
+      "modificado": "20260306125700",
+      "sha256": "8eb06fdb120e8c972040d4e9ee4999e89542edfbb0109f6aeb493defa72894fe"
+    },
+    {
+      "ano": 2018,
+      "arquivo": "IEXOBR18.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR18.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR18.dbc",
+      "tamanho": 12577118,
+      "modificado": "20260306125700",
+      "sha256": "b2e91c9ddf7178531a084d3757cd2856d35f4afe7b81baa35daf8f542d3367f6"
+    },
+    {
+      "ano": 2019,
+      "arquivo": "IEXOBR19.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR19.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR19.dbc",
+      "tamanho": 14867319,
+      "modificado": "20260306125700",
+      "sha256": "81908dfb3d4608bb7a0512b1c6d4a121dcbb9e22d9d5791d5bf236d0121c3693"
+    },
+    {
+      "ano": 2020,
+      "arquivo": "IEXOBR20.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR20.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR20.dbc",
+      "tamanho": 11316424,
+      "modificado": "20260306125700",
+      "sha256": "d69b44bb69da819754cc3781610b0631aa5cb8b610566802ceb9d98d2862c372"
+    },
+    {
+      "ano": 2021,
+      "arquivo": "IEXOBR21.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR21.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR21.dbc",
+      "tamanho": 12565912,
+      "modificado": "20260306125700",
+      "sha256": "106073cccc4e799a8b7ee8b687ea67ef789a514dc7da5cf4e5c704308dc91749"
+    },
+    {
+      "ano": 2022,
+      "arquivo": "IEXOBR22.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR22.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/FINAIS/IEXOBR22.dbc",
+      "tamanho": 15265991,
+      "modificado": "20260306125700",
+      "sha256": "5b3cd070f83db3d6d8e46be750184367fb80ff52573e6a0cbd71d47b341fd6b5"
+    },
+    {
+      "ano": 2023,
+      "arquivo": "IEXOBR23.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR23.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR23.dbc",
+      "tamanho": 19561708,
+      "modificado": "20260921135700",
+      "sha256": "238ed286949c177f71d8c90f1f283e2e8e0b2a2f67da9ba6a68fc0d5709ed20e"
+    },
+    {
+      "ano": 2024,
+      "arquivo": "IEXOBR24.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR24.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR24.dbc",
+      "tamanho": 20244034,
+      "modificado": "20260928133700",
+      "sha256": "bf952dd48bad30dfa5425189296ff61880ac942aa991fc924766605ff22ed108"
+    },
+    {
+      "ano": 2025,
+      "arquivo": "IEXOBR25.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR25.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR25.dbc",
+      "tamanho": 23903990,
+      "modificado": "20260921135700",
+      "sha256": "b3ac3837f5c3ec460a043f835e98df530102b58b4dddce300674ebc7da082e23"
+    },
+    {
+      "ano": 2026,
+      "arquivo": "IEXOBR26.dbc",
+      "remoto": "/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR26.dbc",
+      "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR26.dbc",
+      "tamanho": 16780144,
+      "modificado": "20260928133700",
+      "sha256": "89820c7713769aa5b78e3d494fa1e47785d4278ab84ad599be2ce7f647a8460f"
+    }
+  ]
+}

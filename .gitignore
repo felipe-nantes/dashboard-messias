@@ -1,0 +1,11 @@
+/.runtime/
+/config.local.json
+/publicacao/pacotes/
+/publicacao/.dependencias/
+.Renviron
+.Rhistory
+.RData
+*.dbc
+*.part
+__pycache__/
+*.pyc

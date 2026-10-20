@@ -1,0 +1,18 @@
+{
+  "inicio": 2014,
+  "ano_final": "corrente",
+  "verificar_a_cada_dias": 7,
+  "agendamento": "Planejamento de nuvem: semanal, segundas-feiras às 08:17 em Brasília. O estado efetivo consta em data/agendamento.json.",
+  "ftp_host": "ftp.datasus.gov.br",
+  "ftp_pastas": ["/dissemin/publicos/SINAN/DADOS/FINAIS", "/dissemin/publicos/SINAN/DADOS/PRELIM"],
+  "portal_fonte": "https://datasus.saude.gov.br/transferencia-de-arquivos/",
+  "periodo_analises_espaciais": [2021, 2025],
+  "periodo_tendencias": [2014, 2025],
+  "regra_publicacao": "Publicar agregados e análises exploratórias apenas após validação; preservar versão do estudo e última atualização válida.",
+  "versao_inicial": "estudo",
+  "publicacao": {
+    "provedor": "Posit Connect Cloud",
+    "processamento_externo": "GitHub Actions",
+    "fuso": "America/Sao_Paulo"
+  }
+}

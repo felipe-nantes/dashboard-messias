@@ -1,0 +1,73 @@
+ESTRUTURA PARA HOSPEDAGEM — DASHBOARD MESSIAS
+Diretriz adotada em 19/10/2026: toda mudança considera publicação e atualização externa.
+
+ARQUITETURA
+1. Estudo: versão recebida, confirmada e preservada, com seus denominadores.
+2. Processamento: consulta SINAN, lê DBC, agrega, recalcula os métodos do estudo,
+   valida e mantém a última versão válida em caso de falha. Executa fora do Shiny.
+3. Aplicação pública: consulta os agregados e exibe fontes, datas, versões e métodos.
+4. Distribuição: pacote explícito gerado por scripts/preparar_publicacao.R.
+
+AMBIENTES
+config.local.json guarda caminhos e bibliotecas deste Windows e não é distribuído.
+Sem esse arquivo, a aplicação usa publicacao e não oferece coleta a visitantes.
+DASH_AMBIENTE aceita local, publicacao ou processamento.
+DASH_PAINEL_DIR, DASH_DATA_DIR, DASH_RUNTIME_DIR e DASH_R_LIBS ajustam caminhos.
+O coletor aceita DASH_RSCRIPT ou encontra Rscript no PATH em Linux e Windows.
+Sem caminho configurado, dados ficam em data/ relativo à raiz da aplicação.
+O pacote público usa ponteiro relativo, SHA-256 e inventário de dados.
+
+GERAR PACOTE NO D:
+Na pasta painel/, com TEMP/TMP no D: e LANG/LC_ALL=en_US.UTF-8:
+  Rscript --vanilla scripts/registrar_dependencias.R
+  Rscript --vanilla scripts/preparar_publicacao.R
+O primeiro comando só é necessário ao adicionar ou atualizar dependências.
+Não sobrescrever distribuições anteriores. A geração não faz login nem publica.
+
+O pacote contém código, renv.lock, agregados, hashes e dois workflows Linux.
+Exclui DBC, microdados, respostas recebidas, caches, logs e bibliotecas locais.
+Há lock separado para a aplicação e para o processamento; não copiar pacotes
+compilados do Windows para a hospedagem Linux.
+
+ROTA INICIAL: POSIT CONNECT CLOUD + GITHUB ACTIONS
+O repositório do pacote pode ser conectado ao Connect Cloud com publicação a
+cada push. Na modalidade GitHub gratuita do Connect Cloud o repositório é público.
+Fazer o teste de publicação com o pacote; não enviar a pasta completa do projeto.
+O workflow de coleta só executa quando a variável de repositório SINAN_ATIVADO
+for true. A preparação local deixa essa rotina de nuvem inativa.
+Agendamento preparado: segunda-feira, 11:17 UTC = 08:17 em Brasília (UTC-3).
+A tarefa local do Windows continua no horário existente até a migração validada.
+
+O workflow baixa os DBC apenas no executor temporário; não os envia como arquivos
+de repositório ou artefatos. Publica apenas agregados e estado da consulta após
+validar a distribuição. Falhas mantêm o conjunto válido anterior; detalhes ficam
+no log do processamento. A mensagem pública informa a falha e a data real.
+Antes da coleta, o executor reproduz Bayes, Moran, LISA e tendências usando os
+agregados do estudo, para detectar incompatibilidade no ambiente de processamento.
+Os instantes armazenados mantêm o fuso de origem; a tela os converte para Brasília.
+
+ANTES DE ATIVAR
+- Criar/conectar as contas e revisar a visibilidade pública do código/agregados.
+- Validar os workflows em Linux, os pacotes espaciais, recursos e acesso ao FTP.
+- Publicar e conferir o dashboard no endereço público, incluindo downloads.
+- Executar a coleta pelo Actions e confirmar a atualização no endereço publicado.
+- Verificar consumo e notificações de falha da conta, conforme as preferências.
+- Evitar dois coletores ativos sobre o mesmo armazenamento após a migração.
+
+LIMITES OPERACIONAIS
+Connect Cloud Free tem franquia mensal; o agendamento nativo é pago. A consulta
+semanal é externa pelo Actions. Os horários agendados podem atrasar. Em repositórios
+públicos, 60 dias sem atividade podem desativar o agendamento; acompanhar a data da
+última consulta. O estado de cada consulta é registrado no repositório quando o
+workflow consegue concluir suas etapas. Falhas de instalação anteriores à coleta
+continuam visíveis no Actions; o painel conserva sua última data registrada.
+
+Não confundir pacote preparado, teste local, teste em Linux, hospedagem publicada
+e atualização da nuvem ativada. A ativação só é comprovada por execução real e
+pela versão correspondente no site. Os originais e relatórios permanecem no D:.
+
+FONTES OFICIAIS DA INTEGRAÇÃO
+https://docs.posit.co/connect-cloud/how-to/r/dependencies.html
+https://docs.posit.co/connect-cloud/user/publish/github.html
+https://docs.posit.co/connect-cloud/user/usage.html
+https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows

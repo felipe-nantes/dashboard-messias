@@ -1,0 +1,44 @@
+{
+  "gerado_em": "2026-10-20T09:24:12-0300",
+  "ambiente": "publicacao",
+  "estudo": "estudo_2026-10-19_resposta1_5",
+  "atualizacao": "sinan_20261020T091448",
+  "arquivos": [
+    {
+      "arquivo": "data/agendamento.json",
+      "sha256": "00c970d7b16ae8ecf554c2d61a2d28d05e16634eb633f5efd553c698d012e506",
+      "bytes": 219
+    },
+    {
+      "arquivo": "data/atualizacao_atual.json",
+      "sha256": "93b2bd2f71cca90352eb8ad10d99e2708c01d63e2daacb1c95494227caf122e9",
+      "bytes": 316
+    },
+    {
+      "arquivo": "data/atualizacao_status.json",
+      "sha256": "26efba8e2aac7ccc352abd734e112393bff4f305f64e6d0a8862d33c2012bb31",
+      "bytes": 300
+    },
+    {
+      "arquivo": "data/atualizacoes/sinan_20261020T091448/dados.rds",
+      "sha256": "7081efe7eecb8dc186c877e2d4bc5d61ca1d7880fc09e46c046e2ea38d28700b",
+      "bytes": 692000
+    },
+    {
+      "arquivo": "data/catalogo_sinan.json",
+      "sha256": "78ba306ca735fb595b51b05ad3b76d7ee297b5fadb22f8a149e42b9e7ef39356",
+      "bytes": 5003
+    },
+    {
+      "arquivo": "data/estudo.rds",
+      "sha256": "280f54d7b42ddeb2d0c57221e1d839ec58d40dac2685881c8611996f82cb228e",
+      "bytes": 687716
+    },
+    {
+      "arquivo": "data/referencia_cientifica.json",
+      "sha256": "f59563467caa8eeff5233d3f70bb8878506e9984d73490867150328340a63400",
+      "bytes": 1013
+    }
+  ],
+  "agendamento_ativado": false
+}

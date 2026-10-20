@@ -1,0 +1,33 @@
+{
+  "id": "resposta1_5_2026-10-19",
+  "homologado": true,
+  "recebida_em": "2026-10-19",
+  "escopo": "Resultado do estudo recebido e método de referência; novas extrações permanecem exploratórias.",
+  "metodo": "PRM",
+  "campo_classe": "QUAD_PRM",
+  "campo_p": "LISA_P_PRM",
+  "historico": "QUAD_OFIC",
+  "periodo": [
+    2021,
+    2025
+  ],
+  "nsim": 999,
+  "semente": 42,
+  "limiar": "p < 0,05",
+  "contagens_estudo": {
+    "HH": 84,
+    "LL": 84,
+    "HL": 5,
+    "LH": 0,
+    "NS": 226
+  },
+  "fonte_confirmacao": {
+    "arquivo": "conferencia_2026-10-19_resposta1_5/originais/Resposta1.5.docx",
+    "sha256": "28a7ecf847c1766a7a7a69a8bd5db1308da50f99c94d51411218336438ea7755"
+  },
+  "fonte_zip": {
+    "arquivo": "conferencia_2026-10-19_resposta1_5/originais/Pasta_Complementar_2.0.zip",
+    "sha256": "a664eee5c17fc5f4f0625473bced5ff4eb30f33d01329a48a2f7aac6e21d3033"
+  },
+  "verificacao_nativa_R": "conferencia_2026-10-19_resposta1_5/_apoio/verificacao_nativa_R.json"
+}

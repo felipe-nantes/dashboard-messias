@@ -1,0 +1,6 @@
+@media(max-width:640px){.lateral{visibility:hidden}.menu-aberto .lateral{visibility:visible}}
+
+.fonte-dados{border-left:3px solid #A2BCAE;padding:2px 0 2px 13px;margin:-7px 0 22px;color:#577366;font-size:11px;line-height:1.7;overflow-wrap:anywhere}
+.fonte-dados p{margin:0 0 5px}.fonte-dados p:last-child{margin-bottom:0}.fonte-dados strong{font-weight:650;color:#365B4B}
+.fonte-dados summary{display:list-item;cursor:pointer;font-size:10px;color:#327C72}.fonte-dados details[open] summary{margin-bottom:8px}.fonte-dados details p{font-size:10px}
+@media(max-width:640px){.fonte-dados{font-size:10px;padding-left:10px}}

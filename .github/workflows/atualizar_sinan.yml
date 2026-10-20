@@ -1,0 +1,75 @@
+name: Atualizar SINAN
+on:
+  schedule:
+    - cron: '17 11 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: atualizar-sinan
+  cancel-in-progress: false
+jobs:
+  atualizar:
+    # Ativar somente apos conectar a conta e testar a publicacao completa.
+    if: vars.SINAN_ATIVADO == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      DASH_AMBIENTE: processamento
+      DASH_AGENDAMENTO_NUVEM_ATIVO: 'true'
+      R_LIBS_USER: ${{ runner.temp }}/r-library
+      TMPDIR: ${{ runner.temp }}
+      RENV_PATHS_ROOT: ${{ runner.temp }}/renv
+      DASH_DATA_DIR: ${{ runner.temp }}/processamento-data
+      DASH_RUNTIME_DIR: ${{ runner.temp }}/sinan-runtime
+      PUBLISH_STAGE: ${{ runner.temp }}/pacote-dashboard
+    steps:
+      - uses: actions/checkout@v7
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - name: Dependencias do sistema
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgdal-dev libgeos-dev libproj-dev libudunits2-dev libcurl4-openssl-dev libssl-dev libxml2-dev
+      - name: Restaurar dependencias de processamento
+        shell: Rscript {0}
+        run: |
+          dir.create(Sys.getenv('R_LIBS_USER'), recursive=TRUE, showWarnings=FALSE)
+          install.packages('renv', repos='https://cloud.r-project.org')
+          renv::restore(lockfile='publicacao/renv.processamento.lock', library=Sys.getenv('R_LIBS_USER'), prompt=FALSE)
+      - name: Separar o armazenamento de processamento da aplicacao publica
+        run: |
+          mkdir -p "$DASH_DATA_DIR"
+          cp -a data/. "$DASH_DATA_DIR/"
+      - name: Reproduzir os metodos do estudo neste executor
+        run: Rscript --vanilla scripts/validar_metodos_processamento.R
+      - name: Consultar SINAN e validar nova versao
+        id: coleta
+        continue-on-error: true
+        run: python3 -B -X utf8 scripts/atualizar_sinan.py
+      - name: Preparar somente agregados e metadados
+        run: Rscript --vanilla scripts/preparar_publicacao.R "$PUBLISH_STAGE"
+      - name: Validar a distribuicao antes da entrega
+        env:
+          DASH_AMBIENTE: publicacao
+          DASH_DATA_DIR: data
+        run: |
+          cd "$PUBLISH_STAGE"
+          Rscript --vanilla scripts/validar_pacote_publicacao.R
+      - name: Entregar agregados ao repositorio conectado ao dashboard
+        run: |
+          python3 -B scripts/entregar_publicacao.py "$PUBLISH_STAGE" .
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- data publicacao/inventario_dados.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Atualiza agregados e estado da consulta SINAN'
+            git push
+          fi
+      - name: Sinalizar falha da consulta preservando os dados validos
+        if: steps.coleta.outcome == 'failure'
+        run: |
+          echo 'A coleta falhou. A versao valida anterior foi mantida; consulte o log administrativo.'
+          exit 1
