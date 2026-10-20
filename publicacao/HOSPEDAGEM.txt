@@ -1,6 +1,20 @@
 ESTRUTURA PARA HOSPEDAGEM — DASHBOARD MESSIAS
 Diretriz adotada em 19/10/2026: toda mudança considera publicação e atualização externa.
 
+PUBLICAÇÃO CONFIRMADA EM 20/10/2026
+Site: https://felipe-nantes-dashboard-messias.share.connect.posit.cloud/
+GitHub: https://github.com/felipe-nantes/dashboard-messias (main).
+Checkout local: D:\dashboard\Dashboard\hospedagem\dashboard-messias.
+Antes de enviar alterações, sincronizar esse checkout: o coletor de nuvem também
+entrega agregados e estado da consulta na mesma branch. Não substituir dados
+da nuvem por uma cópia local anterior ao atualizar apenas o código.
+Posit Free, US$ 0, 20 créditos mensais; 1 CPU e 1 GB, consumo de 1 crédito/hora.
+O limite também considera publicações. Não se trata de uso mensal ilimitado.
+Execução externa validada: GitHub Actions 39427625274; validação Linux 39427597661.
+A fonte estava sem revisões. O estado da consulta foi entregue pelo bot e
+republicado automaticamente pelo Posit no commit 433b67d, sem republicação manual.
+O site e a consulta periódica não dependem do computador nem do HD conectados.
+
 ARQUITETURA
 1. Estudo: versão recebida, confirmada e preservada, com seus denominadores.
 2. Processamento: consulta SINAN, lê DBC, agrega, recalcula os métodos do estudo,
@@ -42,6 +56,10 @@ O workflow baixa os DBC apenas no executor temporário; não os envia como arqui
 de repositório ou artefatos. Publica apenas agregados e estado da consulta após
 validar a distribuição. Falhas mantêm o conjunto válido anterior; detalhes ficam
 no log do processamento. A mensagem pública informa a falha e a data real.
+Se todos os anos, caminhos, tamanhos e datas coincidirem com o catálogo anterior,
+e a assinatura da fonte e o SHA-256 do agregado forem válidos, registra a consulta
+sem repetir downloads nacionais. Revisões, novo ano, metadados incompletos ou
+--forcar exigem coleta; não são aceitos apenas pelo histórico da consulta.
 Antes da coleta, o executor reproduz Bayes, Moran, LISA e tendências usando os
 agregados do estudo, para detectar incompatibilidade no ambiente de processamento.
 Os instantes armazenados mantêm o fuso de origem; a tela os converte para Brasília.
