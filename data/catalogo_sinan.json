@@ -95,27 +95,27 @@
       "arquivo": "IEXOBR24.dbc",
       "remoto": "/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR24.dbc",
       "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR24.dbc",
-      "tamanho": 20244034,
-      "modificado": "20260928133700",
-      "sha256": "bf952dd48bad30dfa5425189296ff61880ac942aa991fc924766605ff22ed108"
+      "tamanho": 20157378,
+      "modificado": "20261029134500",
+      "sha256": "1e29091b5f97b47dc8a77564f44964144fe18281ceae3e74c53e3b57c4923726"
     },
     {
       "ano": 2025,
       "arquivo": "IEXOBR25.dbc",
       "remoto": "/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR25.dbc",
       "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR25.dbc",
-      "tamanho": 23903990,
-      "modificado": "20260921135700",
-      "sha256": "b3ac3837f5c3ec460a043f835e98df530102b58b4dddce300674ebc7da082e23"
+      "tamanho": 23969114,
+      "modificado": "20261029134600",
+      "sha256": "6f0707c5ed72c1797b2ed262ea9a49992f16271b41660104a26d5d5d339c7cc0"
     },
     {
       "ano": 2026,
       "arquivo": "IEXOBR26.dbc",
       "remoto": "/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR26.dbc",
       "url": "ftp://ftp.datasus.gov.br/dissemin/publicos/SINAN/DADOS/PRELIM/IEXOBR26.dbc",
-      "tamanho": 16780144,
-      "modificado": "20260928133700",
-      "sha256": "89820c7713769aa5b78e3d494fa1e47785d4278ab84ad599be2ce7f647a8460f"
+      "tamanho": 19640080,
+      "modificado": "20261029134500",
+      "sha256": "a3d889be30ccdfe3ae026ac6b5b53f6d416cd97310a13dab41864b85df947ef5"
     }
   ]
 }

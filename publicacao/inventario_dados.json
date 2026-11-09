@@ -1,8 +1,8 @@
 {
-  "gerado_em": "2026-11-02T20:49:46+0000",
+  "gerado_em": "2026-11-09T21:33:25+0000",
   "ambiente": "publicacao",
   "estudo": "estudo_2026-10-19_resposta1_5",
-  "atualizacao": "sinan_20261020T091448",
+  "atualizacao": "sinan_20261109T213229",
   "arquivos": [
     {
       "arquivo": "data/agendamento.json",
@@ -11,22 +11,22 @@
     },
     {
       "arquivo": "data/atualizacao_atual.json",
-      "sha256": "3b3764cc8ccfb4601470b8ab8d500e12097380c09e510eaa2548f313f970b87e",
+      "sha256": "5f510f555b9c7cde50a3e7615355ffd31863c7b8880faddc8af65e0de3104bcc",
       "bytes": 309
     },
     {
       "arquivo": "data/atualizacao_status.json",
-      "sha256": "5dddbc11a21d2ca8c888e54bc1b46ec0345116f3f7c891805786edec407d7e67",
-      "bytes": 292
+      "sha256": "59efd4c7b126c2d35ebf458f220727cb8beaad203d4bb527330550542c402f78",
+      "bytes": 321
     },
     {
-      "arquivo": "data/atualizacoes/sinan_20261020T091448/dados.rds",
-      "sha256": "7081efe7eecb8dc186c877e2d4bc5d61ca1d7880fc09e46c046e2ea38d28700b",
-      "bytes": 692000
+      "arquivo": "data/atualizacoes/sinan_20261109T213229/dados.rds",
+      "sha256": "cf4afdc116241996af43b2df22e8666b0a2df857293e3da1585ee5799a7909e8",
+      "bytes": 691096
     },
     {
       "arquivo": "data/catalogo_sinan.json",
-      "sha256": "18bd18a521d00b9071eae7f1461b3e2a319addadcbd7662ed3cd8e48b6b5cb5f",
+      "sha256": "1358c3137822b32a34238725f78d73cb386a00377858f460face02521d99e8e0",
       "bytes": 4882
     },
     {
