@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-09T21:33:25+0000",
+  "gerado_em": "2026-11-16T21:06:16+0000",
   "ambiente": "publicacao",
   "estudo": "estudo_2026-10-19_resposta1_5",
   "atualizacao": "sinan_20261109T213229",
@@ -16,8 +16,8 @@
     },
     {
       "arquivo": "data/atualizacao_status.json",
-      "sha256": "59efd4c7b126c2d35ebf458f220727cb8beaad203d4bb527330550542c402f78",
-      "bytes": 321
+      "sha256": "01770e71a6f6bbd29658af99aa0b11644953aa3b8f536b9a5469e7edb48a4d1a",
+      "bytes": 315
     },
     {
       "arquivo": "data/atualizacoes/sinan_20261109T213229/dados.rds",
