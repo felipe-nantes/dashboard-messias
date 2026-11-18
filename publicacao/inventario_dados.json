@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-11-16T21:06:16+0000",
+  "gerado_em": "2026-11-18T19:42:19+0000",
   "ambiente": "publicacao",
   "estudo": "estudo_2026-10-19_resposta1_5",
   "atualizacao": "sinan_20261109T213229",
@@ -16,7 +16,7 @@
     },
     {
       "arquivo": "data/atualizacao_status.json",
-      "sha256": "01770e71a6f6bbd29658af99aa0b11644953aa3b8f536b9a5469e7edb48a4d1a",
+      "sha256": "3315ab84c9874bf85e357cd49e9549402c0959be5d3c44045747d8ef35b075df",
       "bytes": 315
     },
     {
